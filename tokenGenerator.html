@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter-Trainer | Token</title>
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, rgb(14, 14, 14), rgb(14, 14, 14));
+            color: white;
+            display: flex;
+        }
+        .sidebar {
+            position: fixed;
+            width: 220px;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgb(9, 9, 9), rgb(0, 0, 0));
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            width: 75px;
+            height: 75px;
+            margin-bottom: 10px;
+        }
+        .search {
+            width: 90%;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        .search:focus {
+            border-color: #88a1b9;
+        }
+        .nav-item {
+            width: 90%;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .nav-item2 {
+            width: 98.5%;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            background:#181818;
+        }
+        .nav-item:hover {
+            background: #222;
+        }
+        .nav-item2:hover {
+            background: #222;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            background: gray;
+            border-radius: 3px;
+            box-shadow: 0px 8px 20px -10px #bbbbbb;
+        }
+        .upgrade {
+            color: #ffffff;
+            margin-top: auto;
+            margin-bottom: 10px;
+        }
+        .button {
+            border: solid 1px #ffffff;
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #5E7A93;
+            border: #222;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #88a1b9;
+        }
+        .input-field {
+            width: 90%;
+            padding: 8px;
+            margin-top: 10px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            outline: none;
+        }
+        .input-field:focus {
+            border-color: #88a1b9;
+        }
+        .checkbox {
+            margin-top: 10px;
+            accent-color: #5E7A93;
+        }
+        .slider {
+            width: 90%;
+            margin-top: 10px;
+            accent-color: #5E7A93;
+        }
+        .dropdown {
+            width: 90%;
+            padding: 8px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            margin-top: 10px;
+            outline: none;
+        }
+        .text-area {
+            width: 90%;
+            height: 80px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            padding: 8px;
+            margin-top: 10px;
+            outline: none;
+        }
+        .styled-line {
+            width: 90%;
+            border: none;
+            height: 2px;
+            background: #ffffff;
+            margin: 15px 0;
+            border-radius: 19px;
+        }
+        .styled-line2 {
+            width: 90%;
+            border: none;
+            height: 2px;
+            background: #ffffff2f;
+            margin: 15px 0;
+            border-radius: 19px;
+        }
+        .vertical-line {
+            width: 1.5px;
+            height: 30px;
+            background-color: #ffffff;
+            margin-right: 10px;
+            border-radius: 19px;
+        }
+        a {
+        text-decoration: none;
+        color: inherit;
+        }
+        a:focus, a:hover {
+            outline: none;
+        }
+        .notification {
+            display: flex;
+            flex-direction: column;
+            isolation: isolate;
+            position: relative;
+            width: 25rem;
+            height: 13.5rem;
+            background: #29292c;
+            border-radius: 1rem;
+            overflow: hidden;
+            font-size: 16px;
+            --gradient: linear-gradient(to bottom, #637789, #637789, #637789);
+            --color: #637789
+        }
+
+            .notification:before {
+            position: absolute;
+            content: "";
+            inset: 0.0625rem;
+            border-radius: 0.9375rem;
+            background: #18181b;
+            z-index: 2
+            }
+
+            .notification:after {
+            position: absolute;
+            content: "";
+            width: 0.25rem;
+            inset: 0.65rem auto 0.65rem 0.5rem;
+            border-radius: 0.125rem;
+            background: var(--gradient);
+            transition: transform 300ms ease;
+            z-index: 4;
+            }
+
+            .notification:hover:after {
+            transform: translateX(0.15rem)
+            }
+
+            .notititle {
+            color: var(--color);
+            padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: transform 300ms ease;
+            z-index: 5;
+            }
+
+            .notification:hover .notititle {
+            transform: translateX(0.15rem)
+            }
+
+            .notibody {
+            color: #99999d;
+            padding: 0 1.25rem;
+            transition: transform 300ms ease;
+            z-index: 5;
+            }
+
+            .notification:hover .notibody {
+            transform: translateX(0.25rem)
+            }
+
+            .notiglow,
+            .notiborderglow {
+            position: absolute;
+            width: 20rem;
+            height: 20rem;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle closest-side at center, white, transparent);
+            opacity: 0;
+            transition: opacity 300ms ease;
+            }
+
+            .notiglow {
+            z-index: 3;
+            }
+
+            .notiborderglow {
+            z-index: 1;
+            }
+
+            .notification:hover .notiglow {
+            opacity: 0.1
+            }
+
+            .notification:hover .notiborderglow {
+            opacity: 0.1
+            }
+
+            .note {
+            color: var(--color);
+            position: fixed;
+            top: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 0.9rem;
+            width: 75%;
+            }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="assets/images/CT.png" class="logo">    
+        <div style="margin-bottom: 7.5px"></div>
+    </div>
+    <div style="margin-left: 220px;">
+        <div style="margin-left: 50px;margin-top: 50px">
+            
+            <b><i><h1>Token</h1></i></b> 
+            <i>You can generate your token once, make sure to never lose it.</i>
+            <hr style="width: 1500px" class="styled-line2">
+
+            <a href="#" class="nav-item2" onclick="copyToken(event)">
+                <img src="assets/images/pass.png" width="35px" height="35px" alt="Leaderboard">
+                <span class="vertical-line"></span>
+                <div style="margin-left: -20px"></div>
+                Generate Token and Copy
+            </a>
+    </div>
+</html>
+
+<script>
+    function copyToken(event) {
+        event.preventDefault();
+        const token = "q97DfXym581T2qURu0oVuUt1pUbj0rBcZRJOzpIDzFY";
+        navigator.clipboard.writeText(token).then(() => {
+            alert("Token copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy:", err);
+        });
+    }
+</script>

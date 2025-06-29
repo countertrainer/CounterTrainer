@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter-Trainer | Log-in</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            display: flex;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #0d0d0d;
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            width: 75px;
+            height: 75px;
+            margin-bottom: 10px;
+        }
+        .search {
+            width: 90%;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        .search:focus {
+            border-color: #88a1b9;
+        }
+        .nav-item {
+            width: 90%;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .nav-item:hover {
+            background: #222;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            background: gray;
+            border-radius: 3px;
+        }
+        .upgrade {
+            color: #ffffff;
+            margin-top: auto;
+            margin-bottom: 10px;
+        }
+        .button {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #5E7A93;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #88a1b9;
+        }
+        .input-field {
+            width: 90%;
+            padding: 8px;
+            margin-top: 10px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            outline: none;
+        }
+        .input-field:focus {
+            border-color: #88a1b9;
+        }
+        .checkbox {
+            margin-top: 10px;
+            accent-color: #5E7A93;
+        }
+        .slider {
+            width: 90%;
+            margin-top: 10px;
+            accent-color: #5E7A93;
+        }
+        .dropdown {
+            width: 90%;
+            padding: 8px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            margin-top: 10px;
+            outline: none;
+        }
+        .text-area {
+            width: 90%;
+            height: 80px;
+            background: #222;
+            border: 1px solid #5E7A93;
+            border-radius: 5px;
+            color: white;
+            padding: 8px;
+            margin-top: 10px;
+            outline: none;
+        }
+        .styled-line {
+            width: 90%;
+            border: none;
+            height: 2px;
+            background: #ffffff;
+            margin: 15px 0;
+            border-radius: 19px;
+        }
+        .styled-line2 {
+            width: 90%;
+            border: none;
+            height: 2px;
+            background: #ffffff2f;
+            margin: 15px 0;
+            border-radius: 19px;
+        }
+        .vertical-line {
+            width: 1.5px;
+            height: 30px;
+            background-color: #ffffff;
+            margin-right: 10px;
+            border-radius: 19px;
+        }
+        a {
+        text-decoration: none;
+        color: inherit;
+        }
+        a:focus, a:hover {
+            outline: none;
+        }
+        .sidebar.hidden {
+            display: none;
+        }
+        .sidebar-icon-rotated {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    document.getElementById('toggleSidebarBtn').addEventListener('click', function() {
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarIcon = document.querySelector('#toggleSidebarBtn img');
+        
+        sidebar.classList.toggle('hidden');
+        
+        // Toggle the rotation of the image
+        sidebarIcon.classList.toggle('sidebar-icon-rotated');
+    });
+</script>
+
+<script>
+    const correctPassword = "q97DfXym581T2qURu0oVuUt1pUbj0rBcZRJOzpIDzFY";
+
+    // Prompt user for password
+    const userPassword = prompt("Please enter your user token:");
+
+    // Check if the password matches
+    if (userPassword === correctPassword) {
+        window.location.href = "home.html";
+    } else {
+        window.close(); // Close the tab
+    }
+</script>

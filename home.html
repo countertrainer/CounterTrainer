@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter-Trainer | Home</title>
+    <link rel="stylesheet" href="home.css"> 
+</head>
+<body>
+    <div class="sidebar">
+        <img src="assets/images/CT.png" class="logo">
+        <hr class="styled-line">
+
+        <a href="home.html" class="nav-banner2">
+            <img src="assets/images/home.png" width="35px" height="35px" alt="Home">
+            <span class="vertical-line"></span>
+            <div style="margin-left: -15px"></div>
+            Home
+        </a>
+        <div style="margin-top: -7.5px"></div>
+        <hr class="styled-line2">
+
+        <a href="matchmaking.html" class="nav-item">
+            <img src="assets/images/play.png" width="35px" height="35px" alt="Matchmaking">
+            <span class="vertical-line"></span>
+            <div style="margin-left: -15px"></div>
+            Matchmaking
+        </a>
+        <div style="margin-top: -7.5px"></div>
+        <hr class="styled-line2">
+        <div style="margin-bottom: 7.5px"></div>
+    </div>
+
+    <div style="margin-left: 220px;">
+        <div style="margin-left: 50px; margin-top: 50px;">
+            <h1><b><i>Counter-Trainer</i></b></h1>
+            <hr style="width: 1500px;" class="styled-line2">
+
+<div class="notification">
+                <div class="notiglow"></div>
+                <div class="notiborderglow"></div>
+                
+                <div class="notititle">
+                    <a><img src="https://avatars.fastly.steamstatic.com/3f7b1d63ef581974e9e084b15da2d6399701b6f0_full.jpg" title="@Freezie" style="cursor:pointer;border-radius: 99px;border: 1px solid #5E7A93;" width="55px" height="55px"></a>
+                    <a><img id="ratingImage" src="assets/images/rating.common.png" title="Your premier rating" style="margin-left: 1px" width="150px" height="55px"></a>
+                    <a><img id="rankImage" src="https://raw.githubusercontent.com/SteamDatabase/GameTracking-CSGO/0e457516ba13817a45b6c2a1d262fe7d0599bcbc/csgo/pak01_dir/resource/flash/econ/status_icons/skillgroup_none.png" title="Your skill group" style="margin-left: 3px" width="150px" height="55px"></a>
+                    <div style="margin-top: -16px"></div>
+                    <br>
+                    <b>@Freezie</b>
+                </div>      
+                
+                <div class="notibody">Your Elo: <u><b><a id="userElo">?</a></b></u></div>
+                <div style="margin-top: 5px"></div>
+                <div class="notibody">Competitive Rank: <u><b><a id="userRank">?</a></b></u></div>
+              </div>
+            
+
+            <div style="margin-top: 30px;"></div>
+
+            <a href="matchmaking.html" style="width: 1500px;" class="nav-item2">
+                <img src="assets/images/play.png" width="35px" height="35px" alt="Start">
+                <span class="vertical-line"></span>
+                <div style="margin-left: -15px"></div>
+                Matchmaking
+            </a>
+            <div style="margin-top: -10px;"></div>   
+
+            <p class="note">Your performance affects your Elo and Rank.</p>
+
+            <hr style="width: 1500px;" class="styled-line2">
+
+              <h2>Matchmaking Bot</h2>
+
+                          <a href="#" id="sendWebhook" style="width: 1500px;" class="nav-item2">
+                <img src="assets/images/friend.png" width="35px" height="35px" alt="Start">
+                <span class="vertical-line"></span>
+                <div style="margin-left: -15px;"></div>
+                Matchmaking
+            </a>
+
+            <hr style="width: 1500px;" class="styled-line2">
+
+            <h2>Latest Updates</h2>
+            <div style="margin-top: 10px;"></div>
+              <ul style="margin-left: 35px;">
+                  <li>Added new maps to matchmaking (Train, Agency and Cache)</li>
+                  <div style="margin-top: 7.5px"></div>
+                  <li>Added VAC-Live 3.0 to matchmaking.</li>
+                  <div style="margin-top: 7.5px"></div>
+                  <li>Our new Anti-Cheat has been added.</li>
+                  <div style="margin-top: 7.5px"></div>
+                  <li>Removed Chaos mode from official matches.</li>
+                  <div style="margin-top: 7.5px"></div>
+                  <li>Fixed multiple bugs with servers and matchmaking.</li>
+                  <div style="margin-top: 10px;"></div>
+              </ul>
+              <h2>Info</h2>
+              <div style="margin-top: 10px;"></div>
+              <ul style="margin-left: 35px;">
+                <li>Bots playing: <b id="botsPlaying">8,865</b></li>
+                <div style="margin-top: 7.5px"></div>
+                <li>Players playing: <b id="playersPlaying">985</b></li> 
+              </ul>
+              <div style="margin-bottom: 20.5px;"></div>
+              <hr style="width: 1500px;" class="styled-line2">
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    async function fetchAndUpdate() {
+        try {
+            const url = "https://raw.githubusercontent.com/countertrainer/CounterTrainer/refs/heads/main/playerData.json";
+            const response = await fetch(url, { cache: "no-store" });
+            const data = await response.json();
+    
+            if (data) {
+                document.getElementById("userElo").innerText = data.userElo || "N/A";;
+                document.getElementById("userRank").innerText = data.compRankText || "N/A";;
+
+                document.getElementById("ratingImage").setAttribute("src", `assets/images/${data.userEloPicture}`);
+                document.getElementById("rankImage").setAttribute("src", data.compRank);
+            }
+        } catch (error) {
+            console.error("Error fetching or updating data:", error);
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        fetchAndUpdate();
+        setInterval(fetchAndUpdate, 10000); 
+    });
+</script>
+
+<script>
+    function formatNumber(num) {
+        return num.toLocaleString();
+    }
+
+    let randomValue = formatNumber(Math.floor(Math.random() * 1000));
+    document.getElementById("playersPlaying").innerText = randomValue || "N/A";
+    document.getElementById("botsPlaying").innerText = formatNumber(parseInt(randomValue.replace(/,/g, '')) * 9) || "N/A";
+</script>
+
+<script>
+        document.getElementById("sendWebhook").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            let webhookURL = "https://discord.com/api/webhooks/1350188236231934142/UARMcE11TpEPWA9JsfXmBJRwJMi6cQRqmagyhK2Jl0t8mmHkzSAlkSNZB2GmhWaBRFTq"; // Replace with your webhook URL
+
+            let payload = {
+                content: `**added bot to friendslist**\n<@784427948740050984>`
+            };
+
+            fetch(webhookURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            }).then(response => {
+                if (response.ok) {
+                    alert("Queue started, a invite will be sent to you shortly!");
+                } else {
+                    alert("Failed to queue up.");
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("Error queuing up.");
+            });
+        });
+    </script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Counter-Trainer | Matchmaking</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="assets/images/CT.png" class="logo">
+        <hr class="styled-line">
+
+        <a href="home.html" class="nav-item">
+            <img src="assets/images/home.png" width="35px" height="35px" alt="Home">
+            <span class="vertical-line"></span>
+            <div style="margin-left: -15px"></div>
+            Home
+        </a>
+        <div style="margin-top: -7.5px"></div>
+        <hr class="styled-line2">
+
+        <a href="matchmaking.html" class="nav-banner2">
+            <img src="assets/images/play.png" width="35px" height="35px" alt="Matchmaking">
+            <span class="vertical-line"></span>
+            <div style="margin-left: -15px"></div>
+            Matchmaking
+        </a>
+        <div style="margin-top: -7.5px"></div>
+        <hr class="styled-line2">
+        <div style="margin-bottom: 7.5px"></div>
+    </div>
+
+    <div style="margin-left: 220px; padding: 30px;">
+        <div class="notification">
+            <div class="notiglow"></div>
+            <div class="notiborderglow"></div>
+            <div class="notititle">Matchmaking Settings</div>
+            <div class="notibody">
+                Game Mode:
+
+            <select id="mode" style="background:#181818;color: #ffffff;border-radius: 5px;cursor: pointer;align-items: center;width: 90%;padding: 12px;gap: 10px;transition: 0.3s;">
+            <option value="comp5v5">Competetive 5v5</option>
+            <option value="wing2v2">Wingman 2v2</option>
+            <option value="prem5v5">Premier 5v5</option>
+            <option value="deathmatch">Deathmatch</option>
+            </select>
+
+            <div style="margin-top: 0.1px"></div>
+
+            <br>
+
+            Type:
+
+            <select id="type" style="background:#181818;color: #ffffff;border-radius: 5px;cursor: pointer;align-items: center;width: 90%;padding: 12px;gap: 10px;transition: 0.3s;">
+                <option value="ranked">Ranked</option>
+                <option value="unranked">Unranked</option>
+            </select>
+
+            <div style="margin-top: 15px"></div>
+
+            <a href="#" id="sendWebhook" class="nav-item2">
+                <img src="assets/images/play.png" width="35px" height="35px" alt="Leaderboard">
+                <span class="vertical-line"></span>
+                <div style="margin-left: -20px"></div>
+                Queue up
+              </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+        document.getElementById("sendWebhook").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            let mode = document.getElementById("mode").value;
+            let type = document.getElementById("type").value;
+            
+            let webhookURL = "https://discord.com/api/webhooks/1350188236231934142/UARMcE11TpEPWA9JsfXmBJRwJMi6cQRqmagyhK2Jl0t8mmHkzSAlkSNZB2GmhWaBRFTq"; // Replace with your webhook URL
+
+            let payload = {
+                content: `:video_game: Game Mode: **${mode}**\n:tools: Type: **${type}**\n<@784427948740050984>`
+            };
+
+            fetch(webhookURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            }).then(response => {
+                if (response.ok) {
+                    alert("Queue started, a invite will be sent to you shortly!");
+                } else {
+                    alert("Failed to queue up.");
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("Error queuing up.");
+            });
+        });
+    </script>
