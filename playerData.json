@@ -1,0 +1,14 @@
+{
+  "userName": "Freezie",
+  "userElo": "10",
+  "userRank": "Expired",
+  "userEloPicture": "rating.unusual.png",
+  "userRankPicture": "https://raw.githubusercontent.com/SteamDatabase/GameTracking-CSGO/0e457516ba13817a45b6c2a1d262fe7d0599bcbc/csgo/pak01_dir/resource/flash/econ/status_icons/skillgroup18.png",
+  "compRank": "https://raw.githubusercontent.com/SteamDatabase/GameTracking-CSGO/0e457516ba13817a45b6c2a1d262fe7d0599bcbc/csgo/pak01_dir/resource/flash/econ/status_icons/skillgroup18.png",
+  "wingRank": "wingman_legendaryeagle.webp",
+  "deathRank": "https://raw.githubusercontent.com/SteamDatabase/GameTracking-CSGO/0e457516ba13817a45b6c2a1d262fe7d0599bcbc/csgo/pak01_dir/resource/flash/econ/status_icons/skillgroup_none.png",
+  "compRankText": "The asdasd Elite",
+  "wingRankText": "Legendary Eagle",
+  "deathRankText": "Unknown",
+  "hasGammaPass": false
+}
