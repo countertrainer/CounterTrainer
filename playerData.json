@@ -2,8 +2,8 @@
   "userName": "Freezie",
   "userElo": "0",
   "userEloPicture": "rating.common.png",
-  "compRank": "https://raw.githubusercontent.com/SteamDatabase/GameTracking-CSGO/0e457516ba13817a45b6c2a1d262fe7d0599bcbc/csgo/pak01_dir/resource/flash/econ/status_icons/skillgroup_none.png",
+  "compRank": "https://raw.githubusercontent.com/SteamDatabase/GameTracking-CSGO/0e457516ba13817a45b6c2a1d262fe7d0599bcbc/csgo/pak01_dir/resource/flash/econ/status_icons/skillgroup10.png",
   "wingRank": "wingman_expired.webp",
-  "compRankText": "Expired",
+  "compRankText": "Gold Nova Master",
   "wingRankText": "Expired",
 }
